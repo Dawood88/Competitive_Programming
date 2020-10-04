@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define fill(a,b) memset(a,b,sizeof a)
+#define endl '\n'
+#define PB push_back
+typedef long long ll;
+const int N = 1e7 + 2, M = 1e9 + 7;
+int main()
+{
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	char string1[20];
+	cin >> string1;
+	bool is = true;
+	int len = strlen(string1);
+	for (int i = 0; i < len; i++)
+		if (string1[i] != string1[len - i - 1])
+			is = false;
+
+	if (is)
+		cout << "the string is palindrome" << endl;
+	else
+		cout << "the string is not palindrome" << endl;
+
+	return 0;
+}
