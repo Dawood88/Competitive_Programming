@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define fill(a,b) memset(a,b,sizeof a)
+#define endl '\n'
+#define PB push_back
+typedef long long ll;
+const int N = 1e5 + 2, M = 1e9 + 7;
+int freq[26];
+int oddNum, evenNum;
+int main()
+{
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	char string1[N];
+	cin >> string1;
+	bool is = true;
+	int len = strlen(string1);
+  
+	//First we create a frequence array to count how each character does repeated
+	//After creating variables and input stuffs, we count the frequency of each char 
+	for (int i = 0; i < len; i++)
+		freq[string1[i]-'a']++;
+    
+	//we move across the frequency array
+	//counting how many characters the was repeated odd number times
+	for (int i = 0; i < 26; i++)
+		if (freq[i] % 2 == 1)
+			oddNum++;
+      
+	//If the the string contains more than one character that was repeated Odd number
+	//of times, then it's cannot be palindrome, other strings can be palindrome
+	if (oddNum>1)
+		cout << "The string cannot be palindrome" << endl;
+	else
+		cout << "the string can be palindrome" << endl;
+
+	return 0;
+}
